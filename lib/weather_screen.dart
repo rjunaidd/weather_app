@@ -2,6 +2,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/additonal_information.dart';
+import 'package:weather_app/hourly_forecast.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -31,6 +33,8 @@ class WeatherScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: double.infinity,
@@ -81,11 +85,61 @@ class WeatherScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              Text("Weather Forecast"),
-              Placeholder(fallbackHeight: 150),
-              SizedBox(height: 20),
-              Placeholder(fallbackHeight: 150),
+              SizedBox(height: 15),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Weather Forecast" , style:TextStyle(
+                fontSize: 24,
+                  fontWeight: FontWeight.bold
+                ) ,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    HourlyForecast(),
+                    HourlyForecast(),
+                    HourlyForecast(),
+                    HourlyForecast(),
+                    HourlyForecast(),
+                    HourlyForecast(),
+
+                    SizedBox(
+                      width: 100,
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 10),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Additional Information" , style:TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold
+                ) ,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AdditonalInformation(),
+                  AdditonalInformation(),
+                  AdditonalInformation(),
+                  AdditonalInformation(),
+                  AdditonalInformation(),
+
+                ],
+              )
             ],
           ),
         ),
