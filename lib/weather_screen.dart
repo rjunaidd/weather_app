@@ -33,7 +33,7 @@ class WeatherScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+           //  mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -85,7 +85,7 @@ class WeatherScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 8),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -96,18 +96,17 @@ class WeatherScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 8,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    HourlyForecast(),
-                    HourlyForecast(),
-                    HourlyForecast(),
-                    HourlyForecast(),
-                    HourlyForecast(),
-                    HourlyForecast(),
+                    HourlyForecast(time: "09:12", temperature: "301.12", icon: Icons.cloud),
+                    HourlyForecast(time: "11:02", temperature: "350.12", icon: Icons.sunny),
+                    HourlyForecast(time: "16:40", temperature: "225.3", icon: Icons.snowing),
+                    HourlyForecast(time: "02:12", temperature: "308.2", icon: Icons.thunderstorm_outlined),
+                    HourlyForecast(time: "06:12", temperature: "280.7", icon: Icons.grain),
 
                     SizedBox(
                       width: 100,
@@ -129,16 +128,16 @@ class WeatherScreen extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  AdditonalInformation(),
-                  AdditonalInformation(),
-                  AdditonalInformation(),
-                  AdditonalInformation(),
-                  AdditonalInformation(),
-
-                ],
+              SingleChildScrollView(
+                child: Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    AdditonalInformation(icon: Icons.water_drop, label: "Humditiy", value: "91"),
+                    AdditonalInformation(icon: Icons.air, label: "Wind Speed", value: "10"),
+                   AdditonalInformation(icon: Icons.beach_access, label: "Pressure", value: "100")
+                
+                  ],
+                ),
               )
             ],
           ),
